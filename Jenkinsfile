@@ -21,10 +21,8 @@ pipeline {
             }
         }
 
-        stage('Deploy (only on master)') {
-            when {
-                branch 'master'
-            }
+        stage('Deploy') {
+            
             steps {
                 sh """
                     docker stop $IMAGE_NAME || true
