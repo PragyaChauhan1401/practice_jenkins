@@ -9,15 +9,11 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: "${env.BRANCH_NAME}", url: 'https://github.com/PragyaChauhan1401/practice_jenkins.git'
+                git branch: 'main', url: 'https://github.com/PragyaChauhan1401/practice_jenkins.git'
             }
         }
 
-        stage('Build Code') {
-            steps {
-                echo "Building code from ${env.BRANCH_NAME}"
-            }
-        }
+        
 
         stage('Docker Build') {
             steps {
@@ -41,7 +37,7 @@ pipeline {
 
     post {
         always {
-            echo "Pipeline finished for ${env.BRANCH_NAME}"
+            echo "Pipeline finished for "
         }
     }
 }
