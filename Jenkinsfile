@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         IMAGE_NAME = 'product-ci-app'
-        CONTAINER_PORT = '82'
+        CONTAINER_PORT = '80'
     }
 
     stages {
@@ -27,7 +27,7 @@ pipeline {
                 sh """
                     docker stop $IMAGE_NAME || true
                     docker rm $IMAGE_NAME || true
-                    docker run -d -p 82:82 --name $IMAGE_NAME $IMAGE_NAME
+                    docker run -d -p 80:80 --name $IMAGE_NAME $IMAGE_NAME
                 """
             }
         }
